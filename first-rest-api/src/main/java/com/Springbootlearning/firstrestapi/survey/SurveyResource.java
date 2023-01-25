@@ -24,7 +24,7 @@ public class SurveyResource {
 	}
 
 	@RequestMapping("/Surveys")
-	public List<Survey> retrieveAllSurveys() {
+	public List<Survey> retrieve3AllSurveys() {
 		return surveyservice.retrieveAllSurveys();
 	}
 
