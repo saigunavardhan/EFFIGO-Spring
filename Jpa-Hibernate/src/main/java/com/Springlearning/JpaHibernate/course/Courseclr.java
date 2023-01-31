@@ -34,12 +34,10 @@ public class Courseclr implements CommandLineRunner {
 		System.out.println(repo.findById(2l));
 		System.out.println(repo.findAll());
 		System.out.println(repo.count());
-		
+
 		System.out.println(repo.findByAuthor("Udemy"));
 		System.out.println(repo.findByName("Learn Sql"));
-		
-		
-		
+
 	}
 
 }

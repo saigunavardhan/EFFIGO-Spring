@@ -12,7 +12,7 @@ import com.Springlearning.JpaHibernate.course.Course;
 @Repository
 @Transactional
 public class CourseJdbcRepo {
-	
+
 	@Autowired
 	private JdbcTemplate springJdbcTemp;
 
@@ -24,17 +24,18 @@ public class CourseJdbcRepo {
 			delete from course where id = ?;
 						""";
 	private static String SELECT_QUERY = """
-		select * from course where id = ? 
-						""";
-	public void insert(Course course){
-		springJdbcTemp.update(INSERT_QUERY, course.getId(), course.getName(), course.getAuthor());	
+			select * from course where id = ?
+							""";
+
+	public void insert(Course course) {
+		springJdbcTemp.update(INSERT_QUERY, course.getId(), course.getName(), course.getAuthor());
 	}
-	
+
 	public void deletebyId(long id) {
 		springJdbcTemp.update(DELETE_QUERY, id);
 	}
-	
+
 	public Course selectbyId(long id) {
-		return springJdbcTemp.queryForObject(SELECT_QUERY, new BeanPropertyRowMapper<>(Course.class),id);
+		return springJdbcTemp.queryForObject(SELECT_QUERY, new BeanPropertyRowMapper<>(Course.class), id);
 	}
 }
